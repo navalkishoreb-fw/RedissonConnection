@@ -15,7 +15,9 @@ public class RedissonClientConnection {
     public static void main(String[] args) throws InterruptedException {
         // Configure Redisson
         Config config = new Config();
-        config.useSingleServer().setAddress("redis://localhost:6379");
+        config.useSingleServer().setAddress("redis://localhost:6379").setPassword(null);
+//       Fails -->  config.useSingleServer().setAddress("redis://localhost:6379").setPassword("");
+//       Pass --> config.useSingleServer().setAddress("redis://localhost:6379");
 
         // Create Redisson client
         RedissonClient redisson = Redisson.create(config);
